@@ -10,6 +10,7 @@
 #import "OTIHAPCore.h"
 #import "GarageDoorOpener.h"
 #import "Thermostat.h"
+#import "WifiLight.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,7 @@
 @property (strong, nonatomic) OTIHAPCore *accessoryCore;
 @property (strong, nonatomic) GarageDoorOpener *doorOpener;
 @property (strong, nonatomic) Thermostat *thermostat;
+@property (strong, nonatomic) WifiLight *wifiLight;
 
 @end
 
@@ -34,6 +36,12 @@
     NSLog(@"Thermostat:%@",_thermostat);
     
     [_accessoryCore addAccessory:[_thermostat accessory]];
+    
+    
+    _wifiLight = [[WifiLight alloc] initWithSerialNumber:@"1234" Core:_accessoryCore];
+    NSLog(@"WifiLight:%@",_wifiLight);
+    
+    [_accessoryCore addAccessory:[_wifiLight accessory]];
 
 }
 

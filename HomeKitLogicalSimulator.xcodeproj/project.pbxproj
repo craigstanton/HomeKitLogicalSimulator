@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8836E9CB19DA6C2A00ABD3DE /* WifiLight.m in Resources */ = {isa = PBXBuildFile; fileRef = 8836E9CA19DA6C2A00ABD3DE /* WifiLight.m */; };
+		8836E9CD19DAB2DE00ABD3DE /* WifiLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8836E9CA19DA6C2A00ABD3DE /* WifiLight.m */; };
+		8836E9D219DAB42D00ABD3DE /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8836E9CF19DAB42D00ABD3DE /* GCDAsyncSocket.m */; };
+		8836E9D319DAB42D00ABD3DE /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8836E9D119DAB42D00ABD3DE /* GCDAsyncUdpSocket.m */; };
 		CC81AEF219A63712006DB885 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC81AEF119A63712006DB885 /* main.m */; };
 		CC81AEF519A63712006DB885 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC81AEF419A63712006DB885 /* AppDelegate.m */; };
 		CC81AEF719A63712006DB885 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC81AEF619A63712006DB885 /* Images.xcassets */; };
@@ -44,6 +48,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8836E9CA19DA6C2A00ABD3DE /* WifiLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiLight.m; sourceTree = "<group>"; };
+		8836E9CC19DA6C4900ABD3DE /* WifiLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiLight.h; sourceTree = "<group>"; };
+		8836E9CE19DAB42D00ABD3DE /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		8836E9CF19DAB42D00ABD3DE /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		8836E9D019DAB42D00ABD3DE /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		8836E9D119DAB42D00ABD3DE /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		CC81AEEC19A63712006DB885 /* HomeKitLogicalSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitLogicalSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC81AEF019A63712006DB885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC81AEF119A63712006DB885 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -220,8 +230,14 @@
 				CC81AF7719A637A9006DB885 /* OTIHAPCore.m */,
 				CC81AF7919A63866006DB885 /* GarageDoorOpener.h */,
 				CC81AF7A19A63866006DB885 /* GarageDoorOpener.m */,
+				8836E9CC19DA6C4900ABD3DE /* WifiLight.h */,
+				8836E9CA19DA6C2A00ABD3DE /* WifiLight.m */,
 				CC81B05A19A64823006DB885 /* Thermostat.h */,
 				CC81B05B19A64823006DB885 /* Thermostat.m */,
+				8836E9CE19DAB42D00ABD3DE /* GCDAsyncSocket.h */,
+				8836E9CF19DAB42D00ABD3DE /* GCDAsyncSocket.m */,
+				8836E9D019DAB42D00ABD3DE /* GCDAsyncUdpSocket.h */,
+				8836E9D119DAB42D00ABD3DE /* GCDAsyncUdpSocket.m */,
 				CC81AEF619A63712006DB885 /* Images.xcassets */,
 				CC81AEF819A63712006DB885 /* MainMenu.xib */,
 				CC81AEEF19A63712006DB885 /* Supporting Files */,
@@ -456,6 +472,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8836E9CB19DA6C2A00ABD3DE /* WifiLight.m in Resources */,
 				CC81AEF719A63712006DB885 /* Images.xcassets in Resources */,
 				CC81AEFA19A63712006DB885 /* MainMenu.xib in Resources */,
 			);
@@ -475,10 +492,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8836E9CD19DAB2DE00ABD3DE /* WifiLight.m in Sources */,
 				CC81AEF519A63712006DB885 /* AppDelegate.m in Sources */,
 				CC81AF7B19A63866006DB885 /* GarageDoorOpener.m in Sources */,
 				CC81AF7819A637A9006DB885 /* OTIHAPCore.m in Sources */,
+				8836E9D319DAB42D00ABD3DE /* GCDAsyncUdpSocket.m in Sources */,
 				CC81AEF219A63712006DB885 /* main.m in Sources */,
+				8836E9D219DAB42D00ABD3DE /* GCDAsyncSocket.m in Sources */,
 				CC81B05C19A64823006DB885 /* Thermostat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

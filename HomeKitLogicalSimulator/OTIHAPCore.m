@@ -68,7 +68,7 @@
 - (NSURL *)homeDataPath {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *appSupportDir = [[NSFileManager defaultManager] URLForDirectory:NSApplicationSupportDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
-    appSupportDir = [appSupportDir URLByAppendingPathComponent:@"org.oltica.HomeKitLogicalSimulator"];
+    appSupportDir = [appSupportDir URLByAppendingPathComponent:@"com.wildmansoftware.HomeKitLogicalSimulator"];
     
     if ([fileManager fileExistsAtPath:[appSupportDir path]] == NO)
     {
