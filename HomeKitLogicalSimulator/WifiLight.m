@@ -29,6 +29,8 @@
 
 @interface WifiLight () {
     OTIHAPCore *_accessoryCore;
+    int _zone;
+    char _triggerChar;
     
     HAKAccessory *_wifiLightAccessory;
     
@@ -48,10 +50,23 @@
 
 @implementation WifiLight
 
-- (id)initWithSerialNumber:(NSString *)serialNumber Core:(OTIHAPCore *)core {
+- (id)initWithSerialNumber:(NSString *)serialNumber Zone: (int) zone Core:(OTIHAPCore *)core {
     self = [super init];
     if (self) {
         _accessoryCore = core;
+        _zone = zone;
+        switch (_zone)
+        {
+            case 1: _triggerChar = 0x45;
+                break;
+            case 2: _triggerChar = 0x47;
+                break;
+            case 3: _triggerChar = 0x49;
+                break;
+            case 4: _triggerChar = 0x4B;
+                break;
+            default: _triggerChar = 0x42;
+        }
         
         _wifiLightAccessory = [self createWifiLightAccessoryWithSerialNumber:serialNumber];
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(characteristicDidUpdateValueNotification:) name:@"HAKCharacteristicDidUpdateValueNotification" object:nil];
@@ -101,11 +116,29 @@
                     {
                         if(_currentOnState.boolValue)
                         {
-                            const unsigned char bytes[] = {0x42, 0x00, 0x55};
+                            NSLog(@"Turning on Zone %d",_zone);
+                            unsigned char bytes[] = {_triggerChar, 0x00, 0x55};
+                            
+                            
+                            
                             NSData *data = [NSData dataWithBytes:bytes length:sizeof(bytes)];
                             [_tcpSocket writeData:data withTimeout:1.0f tag:1];
                         } else {
-                            const unsigned char bytes[] = {0x41, 0x00, 0x55};
+                            
+                            NSLog(@"Turning off Zone %d",_zone);
+                            unsigned char bytes[] = {0x41, 0x00, 0x55};
+                            switch (_zone)
+                            {
+                                case 1: bytes[0] = 0x46;
+                                    break;
+                                case 2: bytes[0] = 0x48;
+                                    break;
+                                case 3: bytes[0] = 0x4A;
+                                    break;
+                                case 4: bytes[0] = 0x4C;
+                                    break;
+                                default: bytes[0] = 0x41;
+                            }
                             NSData *data = [NSData dataWithBytes:bytes length:sizeof(bytes)];
                             [_tcpSocket writeData:data withTimeout:1.0f tag:2];
                             
@@ -125,7 +158,7 @@
                         NSNumber *newVal = (NSNumber *)value;
                         //                        if([newVal intValue] > 0)
                         {
-                            const unsigned char bytes[] = {0x42, 0x00, 0x55};
+                            const unsigned char bytes[] = {_triggerChar, 0x00, 0x55};
                             NSData *data = [NSData dataWithBytes:bytes length:sizeof(bytes)];
                             [_tcpSocket writeData:data withTimeout:1.0f tag:3];
                             
@@ -192,15 +225,20 @@
                     if([_tcpSocket isConnected])
                     {
                         NSNumber *newVal = (NSNumber *)value;
+                        int targetVal = [newVal intValue];
+                        if (targetVal > 59)
+                            targetVal = 59;
+                        if (targetVal < 2)
+                            targetVal = 2;
                         //                        if([newVal intValue] > 0)
                         {
-                            const unsigned char bytes[] = {0x42, 0x00, 0x55};
+                            const unsigned char bytes[] = {_triggerChar, 0x00, 0x55};
                             NSData *data = [NSData dataWithBytes:bytes length:sizeof(bytes)];
                             [_tcpSocket writeData:data withTimeout:1.0f tag:6];
                             
                             [NSThread sleepForTimeInterval:0.1f];
-                            NSLog(@"Setting the brightness to %d",[newVal intValue]);
-                            const unsigned char bytes2[] = {0x4E, [newVal intValue], 0x55};
+                            NSLog(@"Setting the brightness of zone %d to %d",_zone,[newVal intValue]);
+                            const unsigned char bytes2[] = {0x4E, targetVal, 0x55};
                             NSData *data2 = [NSData dataWithBytes:bytes2 length:sizeof(bytes)];
                             [_tcpSocket writeData:data2 withTimeout:1.0f tag:7];
                             
@@ -303,7 +341,7 @@
     _currentHueState = service.hueCharacteristic;
     
     service.nameCharacteristic = [[HAKNameCharacteristic alloc] init];
-    service.nameCharacteristic.name = @"Light Bulb Zone 1";
+    service.nameCharacteristic.name = [NSString stringWithFormat:@"Light Bulb Zone %d",_zone];
     
     service.saturationCharacteristic = [[HAKSaturationCharacteristic alloc] init];
     service.saturationCharacteristic.saturation = 0;
@@ -316,6 +354,8 @@
     
     return service;
 }
+
+
 
 #pragma mark Socket delegate
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port

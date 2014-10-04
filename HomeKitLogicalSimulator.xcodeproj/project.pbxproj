@@ -11,6 +11,8 @@
 		8836E9CD19DAB2DE00ABD3DE /* WifiLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 8836E9CA19DA6C2A00ABD3DE /* WifiLight.m */; };
 		8836E9D219DAB42D00ABD3DE /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8836E9CF19DAB42D00ABD3DE /* GCDAsyncSocket.m */; };
 		8836E9D319DAB42D00ABD3DE /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8836E9D119DAB42D00ABD3DE /* GCDAsyncUdpSocket.m */; };
+		88A2EDAC19DFF09D003770BA /* statusicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88A2EDAB19DFF09D003770BA /* statusicon.png */; };
+		88A2EDAE19DFF3E6003770BA /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88A2EDAD19DFF3E6003770BA /* Empty.xib */; };
 		CC81AEF219A63712006DB885 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC81AEF119A63712006DB885 /* main.m */; };
 		CC81AEF519A63712006DB885 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC81AEF419A63712006DB885 /* AppDelegate.m */; };
 		CC81AEF719A63712006DB885 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC81AEF619A63712006DB885 /* Images.xcassets */; };
@@ -54,6 +56,8 @@
 		8836E9CF19DAB42D00ABD3DE /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		8836E9D019DAB42D00ABD3DE /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		8836E9D119DAB42D00ABD3DE /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		88A2EDAB19DFF09D003770BA /* statusicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusicon.png; sourceTree = "<group>"; };
+		88A2EDAD19DFF3E6003770BA /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		CC81AEEC19A63712006DB885 /* HomeKitLogicalSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitLogicalSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC81AEF019A63712006DB885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC81AEF119A63712006DB885 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -239,8 +243,10 @@
 				8836E9D019DAB42D00ABD3DE /* GCDAsyncUdpSocket.h */,
 				8836E9D119DAB42D00ABD3DE /* GCDAsyncUdpSocket.m */,
 				CC81AEF619A63712006DB885 /* Images.xcassets */,
+				88A2EDAB19DFF09D003770BA /* statusicon.png */,
 				CC81AEF819A63712006DB885 /* MainMenu.xib */,
 				CC81AEEF19A63712006DB885 /* Supporting Files */,
+				88A2EDAD19DFF3E6003770BA /* Empty.xib */,
 			);
 			path = HomeKitLogicalSimulator;
 			sourceTree = "<group>";
@@ -472,8 +478,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A2EDAE19DFF3E6003770BA /* Empty.xib in Resources */,
 				8836E9CB19DA6C2A00ABD3DE /* WifiLight.m in Resources */,
 				CC81AEF719A63712006DB885 /* Images.xcassets in Resources */,
+				88A2EDAC19DFF09D003770BA /* statusicon.png in Resources */,
 				CC81AEFA19A63712006DB885 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

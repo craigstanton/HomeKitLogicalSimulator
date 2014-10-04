@@ -12,7 +12,7 @@
 
 @interface WifiLight : NSObject
 
-- (id)initWithSerialNumber:(NSString *)serialNumber Core:(OTIHAPCore *)core;
+- (id)initWithSerialNumber:(NSString *)serialNumber Zone:(int)zone Core:(OTIHAPCore *)core;
 - (HAKAccessory *)accessory;
 
 @end
